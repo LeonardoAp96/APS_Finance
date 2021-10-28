@@ -1,0 +1,62 @@
+.topo{
+	background-color:#FF6600;
+}
+body{
+    padding: 60px 10px 0 10px;
+    background-color:#FF6600;
+}
+
+.jumbotronHeader{
+    background-color:#FF9C5A;
+    color: floralwhite;
+    height: 600px;
+}
+.jumbotron{
+    background-color:#ff8e42;
+    color:white;
+}
+
+.jumbotronBemVindo{
+    background-color: #FF6600;
+}
+
+.bemVindo{
+    color: #FF6600;
+}
+
+.blockMenu{
+    position: relative;
+    background-color:#FF9C5A;
+    width:20px;
+    height: 200px;
+    float: left;
+    color:white;
+    border: solid;
+    border-width: 1;
+    border-color: #FF6600;
+}
+
+.blockMenu p{
+    padding-top: 25%;
+    text-align: center;
+    font-size: 40px;
+}
+
+.comentario{
+
+    border: outset;
+    border-width: 1;
+    border-color: #FF6600;
+    padding: 20px;
+    background-color:#FF9C5A;
+    color:white;
+}
+
+.faleConosco{
+
+    border: outset;
+    border-width: 1;
+    border-color: #FF6600;
+    background-color:#FF9C5A;
+    color:white;
+}
