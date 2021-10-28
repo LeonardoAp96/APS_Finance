@@ -1,9 +1,11 @@
 .topo{
+    background-image: url("../assets/fundo.png");
 	background-color:#FF6600;
 }
 body{
-    padding: 60px 10px 0 10px;
-    background-color:#FF6600;
+    padding: 60px 10px 0 10px;    
+    background-image: url("assets/fundo.png");
+	background-color:#FF6600;
 }
 
 .jumbotronHeader{
