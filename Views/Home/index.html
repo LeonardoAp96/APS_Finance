@@ -12,30 +12,23 @@
 
 <body>
 
-
-  <canvas width="200" height="100" class="myChart" style="display:none;height:40px; width:80px">
-
-  </canvas>
-
-  <nav class="topo navbar navbar-dark navbar-expand-md fixed-top">
-    <div class="container">
+  <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+    <div class="container slideMenuTop">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <!-- - navbar-brand para o nome de seu projeto, produto ou companhia;-->
       <a class="navbar-brand" href="#">Managence Finance</a>
-      <!--Essa classe dá o aspecto que os itens estão embutidos quando recolhidos-->
       <div class="collapse navbar-collapse" id="Navbar">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item"><a class="nav-link" href="#divInformacoes"> Informações</a></li>
-          <li class="nav-item"><a class="nav-link" href="#divSobre"> Sobre</a></li>
-          <li class="nav-item"><a class="nav-link" href="#divContato"> Contato</a></li>
+          <li class="nav-item "><a id="slideMenuTopLink" class="nav-link" href="#divInformacoes"> Informações</a></li>
+          <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divSobre"> Sobre</a></li>
+          <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divContato"> Contato</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <header class="jumbotron jumbotronHeader">
+  <header id="topo" class="jumbotron jumbotronHeader">
     <div id="carouselExampleIndicators" class="carousel slide divCarrousel" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -67,7 +60,7 @@
   </header>
 
   <nav id="divInformacoes" class="jumbotron jumbotronBemVindo">
-    <div class="bemVindo container">
+    <div class="bemVindo " style="width: 80%;margin:0 auto;">
 
       <div class="row">
         <div class="col-4 blockMenu">
@@ -84,25 +77,24 @@
 
       </div>
 
-      <div class="row" style="background-color:rgba(255,255,255,0.2);">
+      <div class="row" style="background-color:rgba(0,0,0,0.2);">
 
-        <div class="tab-content">
-          <div id="cartoes" class=" tab-pane in active">
+        <div class="tabInformacao tab-content">
+          <div id="cartoes" class=" tab-pane">
             <h3>Cartões</h3>
-            <p>Acesse a sua conta</p>
+            <p><a href="">Acesse a sua conta</a></p>
           </div>
-          <div id="cambio" class="tab-pane in">
+          <div id="cambio" class="tab-pane in active">
             <h3>Cambio</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-              rem aperiam.</p>
+            <p>Veja a cotação da sua moeda aqui</p>
           </div>
-          <div id="simulacoes" class="tab-pane in">
+          <div id="simulacoes" class="tab-pane">
             <h3>Simulações</h3>
-            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-          </div>
-          <div id="perfil" class="tab-pane in">
-            <h3>Perfil</h3>
-            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+            <p>Veja as suas projeções aqui</p>
+            
+            <canvas width="200" height="100" class="myChart">
+            </canvas>
+
           </div>
         </div>
       </div>
@@ -110,7 +102,7 @@
     </div>
   </nav>
 
-
+<!-- 
   <nav id="informacoes" class="jumbotron">
     <div class="slide container">
 
@@ -147,7 +139,7 @@
         </a>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
   <nav id="divSobre" class="jumbotron ">
     <div class="container" id="sobre">
@@ -226,7 +218,7 @@
     <p> - Lista de links</p>
   </footer>
 
-  <button id="back-to-top">Voltar ao topo</button>
+  <!-- <button id="back-to-top" href="#topo">Voltar ao topo</button> -->
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -254,7 +246,7 @@
     var chatgraph = new Chart(ctx, {
       type: 'line',
       options: {
-        responsive: false,
+        responsive: true,
       }
     });
   </script>
