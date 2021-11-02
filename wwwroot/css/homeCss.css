@@ -1,29 +1,29 @@
 .topo{
-    background-image: url("../assets/fundo.png");
-	background-color:#FF6600;
+    /* background-image: url("fundo.png"); */
 }
+
 body{
     padding: 60px 10px 0 10px;    
-    background-image: url("assets/fundo.png");
-	background-color:#FF6600;
+    background-image: url("../../assets/fundo.png");
+    background-repeat: repeat;
+    background-size: 100%;
 }
 
 .jumbotronHeader{
-    background-color:#FF9C5A;
-    color: floralwhite;
+    /* background-color:#FF9C5A; */
+    /* color: floralwhite; */
     height: 600px;
 }
 .jumbotron{
-    background-color:#ff8e42;
-    color:white;
+    background-color:transparent;
 }
 
 .jumbotronBemVindo{
-    background-color: #FF6600;
+    /* background-color: #FF6600; */
 }
 
 .bemVindo{
-    color: #FF6600;
+    /* color: #FF6600; */
 }
 
 .blockMenu{
@@ -62,3 +62,26 @@ body{
     background-color:#FF9C5A;
     color:white;
 }
+
+.divCarrousel{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carrouselImg img{
+    margin-left: auto;
+    margin-right: auto;
+    height: 500px;
+}
+
+.colorButtonCarrousel{
+    background-color:#666666;
+}
+
+
+#back-to-top {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+  }

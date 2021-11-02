@@ -1,166 +1,264 @@
 <html>
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../wwwroot/css/homeCss.css">
-	<title> Managence Finance</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../../wwwroot/css/homeCss.css">
+  <title> Managence Finance</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 
-<body> 
-    <nav class="topo navbar navbar-dark navbar-expand-md fixed-top">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- - navbar-brand para o nome de seu projeto, produto ou companhia;-->
-            <a class="navbar-brand" href="#">Managence Finance</a>
-            <!--Essa classe dá o aspecto que os itens estão embutidos quando recolhidos-->
-            <div class="collapse navbar-collapse" id="Navbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"> Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body>
 
-    <header class="jumbotron jumbotronHeader">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src=".../800x400?auto=yes&bg=777&fg=555&text=Primeiro Slide" alt="Primeiro Slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src=".../800x400?auto=yes&bg=666&fg=444&text=Segundo Slide" alt="Segundo Slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src=".../800x400?auto=yes&bg=555&fg=333&text=Terceiro Slide" alt="Terceiro Slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Anterior</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Próximo</span>
-            </a>
+
+  <canvas width="200" height="100" class="myChart" style="display:none;height:40px; width:80px">
+
+  </canvas>
+
+  <nav class="topo navbar navbar-dark navbar-expand-md fixed-top">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- - navbar-brand para o nome de seu projeto, produto ou companhia;-->
+      <a class="navbar-brand" href="#">Managence Finance</a>
+      <!--Essa classe dá o aspecto que os itens estão embutidos quando recolhidos-->
+      <div class="collapse navbar-collapse" id="Navbar">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="#divInformacoes"> Informações</a></li>
+          <li class="nav-item"><a class="nav-link" href="#divSobre"> Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#divContato"> Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="jumbotron jumbotronHeader">
+    <div id="carouselExampleIndicators" class="carousel slide divCarrousel" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner carrouselImg">
+        <div class="carousel-item active">
+          <img class="d-block" src="../../assets/img1.jpg" alt="Primeiro Slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block" src="../../assets/img2.jpg" alt="Segundo Slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block" src="../../assets/img3.jpg" alt="Terceiro Slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev colorButtonCarrousel" href="#carouselExampleIndicators" role="button"
+        data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next colorButtonCarrousel" href="#carouselExampleIndicators" role="button"
+        data-slide="next">
+        <span class="carousel-control-next-icon " aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+  </header>
+
+  <nav id="divInformacoes" class="jumbotron jumbotronBemVindo">
+    <div class="bemVindo container">
+
+      <div class="row">
+        <div class="col-4 blockMenu">
+          <p><a data-toggle="tab" href="#cartoes">Cartões</a></p>
+        </div>
+
+        <div class="col-4 blockMenu">
+          <p><a data-toggle="tab" href="#cambio">Câmbios</a></p>
+        </div>
+
+        <div class="col-4 blockMenu">
+          <p><a data-toggle="tab" href="#simulacoes">Simulações</a></p>
+        </div>  
+
+      </div>
+
+      <div class="row" style="background-color:rgba(255,255,255,0.2);">
+
+        <div class="tab-content">
+          <div id="cartoes" class=" tab-pane in active">
+            <h3>Cartões</h3>
+            <p>Acesse a sua conta</p>
           </div>
-    </header>
-	
-	<nav class="jumbotron jumbotronBemVindo">
-		<div class="bemVindo container">
-
-            <div class="row">
-                <div class="col-4 blockMenu">
-                    <p>Cartões</p>      
-                </div>
-                <div class="col-4 blockMenu">
-                    <p>Câmbios</p>      
-                </div>
-                <div class="col-4 blockMenu" style="font-size: 10px;">
-                    <p>Sobre nós</p>       
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-4 blockMenu">
-                    <p>Simulações</p>      
-                </div>
-                <div class="col-4 blockMenu">
-                    <p>Perfil</p>            
-                </div>
-                <div class="col-4 blockMenu" style="font-size: 40px;">
-                    <p>Fale conosco</p>              
-                </div>
-            </div>
+          <div id="cambio" class="tab-pane in">
+            <h3>Cambio</h3>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+              rem aperiam.</p>
+          </div>
+          <div id="simulacoes" class="tab-pane in">
+            <h3>Simulações</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          </div>
+          <div id="perfil" class="tab-pane in">
+            <h3>Perfil</h3>
+            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          </div>
         </div>
-	</nav>
-	
-	<nav class="jumbotron">
-        <div class="slide container">
+      </div>
 
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img class="d-block w-100" src="https://www.remessaonline.com.br/blog/wp-content/uploads/2020/09/plano-de-negocios.jpeg.optimal.jpeg" alt="Primeiro Slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="https://content.portaldofranchising.com.br/wp-content/uploads/2021/02/12192352/negocios-promissores.jpg" alt="Segundo Slide">
-                  </div>
-                  <div class="carousel-item">
-                    <img class="d-block w-100" src="https://rockcontent.com/br/wp-content/uploads/sites/2/2020/03/modelo-de-plano-de-neg%C3%B3cios-para-internet-e1472584954951-1024x585.jpg" alt="Terceiro Slide">
-                  </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Anterior</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Próximo</span>
-                </a>
+    </div>
+  </nav>
+
+
+  <nav id="informacoes" class="jumbotron">
+    <div class="slide container">
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100"
+              src="https://www.remessaonline.com.br/blog/wp-content/uploads/2020/09/plano-de-negocios.jpeg.optimal.jpeg"
+              alt="Primeiro Slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100"
+              src="https://content.portaldofranchising.com.br/wp-content/uploads/2021/02/12192352/negocios-promissores.jpg"
+              alt="Segundo Slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100"
+              src="https://rockcontent.com/br/wp-content/uploads/sites/2/2020/03/modelo-de-plano-de-neg%C3%B3cios-para-internet-e1472584954951-1024x585.jpg"
+              alt="Terceiro Slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Próximo</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <nav id="divSobre" class="jumbotron ">
+    <div class="container" id="sobre">
+      <div class="row">
+        <div class="col-10 col-md-6">
+          <h1>Sobre nós</h1>
+        </div>
+
+        <div class="row" style="text-align: center;">
+          <div class="col-md-3">
+            <div class="thumbnail">
+              <img src="../../assets/img1.jpg" alt="Nature" style="width:100%">
+              <div class="caption">
+                <p>Henrique Takahiro Ito<br> RA:21290541</p>
               </div>
-        </div>
-	</nav>
-
-    <nav class="jumbotron ">
-        <div class="container">
-            <div class="row">
-                <div class="col-10 col-md-6">
-                    <h1>Sobre nós</h1>
-                    <p class="col-10" style="float:left;">
-                        Henrique Takahiro Ito RA:21290541
-                        Leonardo Aparecido Batista dos Santos RA:20590478
-                        Leticia Santos Rosa RA: 21315215
-                        Rodrigo Zanchetta RA: 21338065
-                    </p>
-				</div>
             </div>
-        </div>
-    </nav>
+          </div>
 
-    <nav class="jumbotron ">
-        <div class="container">
-            <div class="row">
-                <div class="col-5 col-md-6">
-                    <h1>Fale Conosco</h1>
-                    <p class="col-4 col-md-6">
-                        <fieldset>
-                            <label for="email">Nome: </label>
-                            <input class="faleConosco" type="email" id="email" name="nome"><br><br>
-                            <label for="email">Email: </label>
-                            <input class="faleConosco" type="email" id="email" name="email"><br><br>
-                            <label for="info"><h3>Comentários</h3></label>
-                            <textarea class="comentario" name="info" id="info" rows="10" cols="80">
+          <div class="col-md-3">
+            <div class="thumbnail">
+              <img src="../../assets/img1.jpg" alt="Nature" style="width:100%">
+              <div class="caption">
+                <p>Leonardo Aparecido Batista dos Santos RA: 20590478</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="thumbnail">
+              <img src="../../assets/img1.jpg" alt="Nature" style="width:100%">
+              <div class="caption">
+                <p>Leticia Santos Rosa <br>RA: 21315215</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="thumbnail">
+              <img src="../../assets/img1.jpg" alt="Nature" style="width:100%">
+              <div class="caption">
+                <p>Rodrigo Zanchetta <br>RA: 21338065</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <nav id="divContato" class="jumbotron">
+    <div class="container">
+      <div class="row">
+        <div class="col-5 col-md-6">
+          <h1>Fale Conosco</h1>
+          <p class="col-4 col-md-6">
+            <fieldset>
+              <label for="email">Nome: </label>
+              <input class="faleConosco" type="email" id="email" name="nome"><br><br>
+              <label for="email">Email: </label>
+              <input class="faleConosco" type="email" id="email" name="email"><br><br>
+              <label for="info">
+                <h3>Comentários</h3>
+              </label>
+              <textarea class="comentario" name="info" id="info" rows="10" cols="80">
                             </textarea>
-                        </fieldset>
-                    </p>
-				</div>
-            </div>
+            </fieldset>
+          </p>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <footer class="navbar navbar-dark navbar-expand-md" style="background-color: #FF6600; color:lavender">
-        <p style="float: left;">Managence Finance </p>
-        <p> - Lista de links</p>
-    </footer>
+  <footer class="navbar navbar-dark navbar-expand-md" style="background-color: #FF6600; color:lavender">
+    <p style="float: left;">Managence Finance </p>
+    <p> - Lista de links</p>
+  </footer>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-</body>
-</html>
-<script>
+  <button id="back-to-top">Voltar ao topo</button>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <script>
     $('.carousel').carousel();
-</script>
+
+
+    function IrBaixo(dado) {
+      var elmnt = document.getElementById(dado);
+      elmnt.scrollIntoView(false);
+      console.log(dado);
+    }
+
+    var ctx = document.getElementsByClassName("myChart");
+
+    var chatgraph = new Chart(ctx, {
+      type: 'line',
+      options: {
+        responsive: false,
+      }
+    });
+  </script>
+
+</body>
+
+</html>
