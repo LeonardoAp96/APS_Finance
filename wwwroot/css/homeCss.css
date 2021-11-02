@@ -1,45 +1,51 @@
 .topo{
-    /* background-image: url("fundo.png"); */
+     background-image: url("fundo.png"); 
 }
 
 body{
     padding: 60px 10px 0 10px;    
-    /* background-image: url("../../assets/fundo1.png"); */
-    background-color:#FF6600;
+     /*background-image: url("../../assets/b.jpg"); */
+    background-color:#ffffff;
     background-repeat: repeat;
     background-size: 100%;
 }
 
 .jumbotronHeader{
-    /* background-color:#FF9C5A; */
-    /* color: floralwhite; */
+     background-color:#FF9C5A; 
+     color: floralwhite; 
     height: 600px;
 }
 .jumbotron{
+    /*
     background-color:transparent;
     border-color: white;
     border-width: 2;
+    */
+    background-color: #E6E6E6;
+    color:#FF6600;
     border: solid;
+    border-color: #E6E6E6;
 }
 
 .jumbotronBemVindo{
-    /* background-color: #FF6600; */
+     background-color: #E6E6E6;
 }
 
 .bemVindo{
-    /* color: #FF6600; */
+     color: #FF6600; 
 }
 
 .blockMenu{
     position: relative;
-    background-color:#FF9C5A;
+    background-color:#F2F2F2;
     width:50px;
     height: 200px;
     float: left;
-    color:white;
+    color:#FF6600;
     border: solid;
-    border-width: 1;
-    border-color: #FF6600;
+    border-width: 5px; 
+    border-radius: 2%;  
+    border-color: #E2E2E2;
 }
 
 .blockMenu p{
@@ -76,21 +82,21 @@ body{
 
 .comentario{
 
-    border: outset;
+    border: solid;
     border-width: 1;
-    border-color: #FF6600;
+    border-color: #000000;
     padding: 20px;
-    background-color:#FF9C5A;
-    color:white;
+    background-color:#E2E2E2;
+    color:#FF6600;
 }
 
 .faleConosco{
 
-    border: outset;
+    border: solid;
     border-width: 1;
-    border-color: #FF6600;
-    background-color:#FF9C5A;
-    color:white;
+    border-color: #E6E6E6;
+    background-color:#E2E2E2;
+    color:#FF6600;
 }
 
 .divCarrousel{
