@@ -1,6 +1,5 @@
     $('.carousel').carousel();
 
-
     function IrBaixo(dado) {
       var elmnt = document.getElementById(dado);
       elmnt.scrollIntoView(false);
@@ -43,15 +42,19 @@
 function CalcularMoeda(){
     let moedas = buscaMoeda();    
 
-    const valorCalculo = document.getElementById("valorCalculo").value;
+    const valorCalculo =  Number.parseFloat(document.getElementById("valorCalculo").value);
     const moedaEntrada = document.getElementById("selectMoedaEntrada").selectedOptions[0].value;
     const moedaSaida = document.getElementById("selectMoedaSaida").selectedOptions[0].value;
-    
+    debugger
+    if(valorCalculo=="" || valorCalculo<0){
+        alert('Valor invalido');
+        return;
+    }
     
     const token = valorCalculo * moedas[moedaEntrada];
     const result = token / moedas[moedaSaida];
     
     
-    document.getElementById("moedaResultado").innerHTML="<span style='color:#FF9C5A'>" + result + "</span>";
+    document.getElementById("moedaResultado").innerHTML="<span style='background-color: rgba(255,255,255,0.7);font-size:20px;color:black;padding:14px 50px;'> Resulta em R$ " + result.toFixed(2) + " " + moedaSaida + "</span>";
     
 }

@@ -2,8 +2,8 @@
 function fazGetAPI(url){
     let request = new XMLHttpRequest(url);
     request.open("GET", url, false);
-    request.send()
-    return request.responseText
+    request.send();
+    return request.responseText;
 }
 
 function buscaMoeda(){
