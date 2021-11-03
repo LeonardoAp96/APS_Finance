@@ -54,7 +54,9 @@ function CalcularMoeda(){
     const token = valorCalculo * moedas[moedaEntrada];
     const result = token / moedas[moedaSaida];
     
+    const text = "Resulta em R$ " + result.toFixed(2) + " " + moedaEntrada;
+    const textTitle = result.toFixed(2) + " " + moedaEntrada;
     
-    document.getElementById("moedaResultado").innerHTML="<span style='background-color: rgba(255,255,255,0.7);font-size:20px;color:black;padding:14px 50px;'> Resulta em R$ " + result.toFixed(2) + " " + moedaSaida + "</span>";
+    document.getElementById("moedaResultado").innerHTML="<span style='background-color: rgba(255,255,255,0.7);font-size:20px;color:black;padding:14px 50px;' title=" + textTitle + "> " + text + "</span>";
     
 }
