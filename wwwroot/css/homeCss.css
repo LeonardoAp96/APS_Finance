@@ -3,8 +3,6 @@
 }
 
 body{
-    /* padding: 60px 10px 0 10px;     */
-     /*background-image: url("../../assets/b.jpg"); */
     background-color:#ffffff;
     background-repeat: repeat;
     background-size: 100%;
@@ -16,11 +14,6 @@ body{
     height: 600px;
 }
 .jumbotron{
-    /*
-    background-color:transparent;
-    border-color: white;
-    border-width: 2;
-    */
     background-color: #E6E6E6;
     color:#FF6600;
     border: solid;
