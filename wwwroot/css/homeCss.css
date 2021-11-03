@@ -3,7 +3,7 @@
 }
 
 body{
-    padding: 60px 10px 0 10px;    
+    /* padding: 60px 10px 0 10px;     */
      /*background-image: url("../../assets/b.jpg"); */
     background-color:#ffffff;
     background-repeat: repeat;
@@ -31,17 +31,13 @@ body{
      background-color: #E6E6E6;
 }
 
-.bemVindo{
-     color: #FF6600; 
-}
 
 .blockMenu{
     position: relative;
-    background-color:#F2F2F2;
+    background-color:#FF6600;
     width:50px;
     height: 200px;
     float: left;
-    color:#FF6600;
     border: solid;
     border-width: 5px; 
     border-radius: 2%;  
@@ -54,14 +50,44 @@ body{
     font-size: 40px;
 }
 
+.blockMenu a{
+    color:white;
+    text-decoration: none;
+}
+
+
+.aCadastro{
+    background-color: #FF6600;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .aCadastro:hover{
+    color: #E2E2E2;
+  }
+
+.aCalcular{
+    background-color: #FF6600;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+.aCalcular:hover{
+    color: black;
+    cursor:pointer;
+  }
+
+
 .tabInformacao{
     margin: 0 auto;
     padding: 5%;
-    
     width: 80%;
-}
-
-.tabInformacao #tab{
+    color: #000000;
 }
 
 .tabInformacao h3,p{
@@ -69,15 +95,21 @@ body{
 }
 
 .slideMenuTop{
-    background-color:rgba(0,0,0,0.7);
+    background-color:#FF6600;
+    max-width: 100%;
+    height: 8%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
 }
 #slideMenuTopLink{
-    color: #FF6600;
-
+    color: #F2F2F2;
 }
 
 #slideMenuTopLink:hover { 
-    color: #FF9C5A;
+    color: #ffffffbe;
 }
 
 .comentario{
@@ -91,12 +123,14 @@ body{
 }
 
 .faleConosco{
-
-    border: solid;
-    border-width: 1;
-    border-color: #E6E6E6;
-    background-color:#E2E2E2;
-    color:#FF6600;
+    width: 50%;
+    margin-top: 10px;
+    padding: 0 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #FF6600;
+    color: #FF6600;
 }
 
 .divCarrousel{
@@ -120,4 +154,14 @@ body{
     position: fixed;
     bottom: 50px;
     right: 50px;
+  }
+
+  .card-content-area input {
+    margin-top: 10px;
+    padding: 0 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e1e1e1;
+    color: #fff;
   }

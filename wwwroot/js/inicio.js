@@ -1,0 +1,57 @@
+    $('.carousel').carousel();
+
+
+    function IrBaixo(dado) {
+      var elmnt = document.getElementById(dado);
+      elmnt.scrollIntoView(false);
+      console.log(dado);
+    }
+
+    var ctx = document.getElementsByClassName("myChart");
+
+    var chatgraph = new Chart(ctx, {
+      type: 'line',
+      options: {
+        responsive: true,
+      }
+    });
+
+    function validacaoEmail() {
+      
+      var field = document.getElementById("contatoEmail");
+      console.log(field.value);
+      usuario = field.value.substring(0, field.value.indexOf("@"));
+      dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+      
+      if ((usuario.length >=1) &&
+          (dominio.length >=3) &&
+          (usuario.search("@")==-1) &&
+          (dominio.search("@")==-1) &&
+          (usuario.search(" ")==-1) &&
+          (dominio.search(" ")==-1) &&
+          (dominio.search(".")!=-1) &&
+          (dominio.indexOf(".") >=1)&&
+          (dominio.lastIndexOf(".") < dominio.length - 1)) {
+        document.getElementById("msgemail").innerHTML="<span>E-mail válido</span>";
+      }
+      else{
+        document.getElementById("msgemail").innerHTML="<span style='color:#FF9C5A'>E-mail inválido </span>";
+      }
+      }
+      
+
+function CalcularMoeda(){
+    let moedas = buscaMoeda();    
+
+    const valorCalculo = document.getElementById("valorCalculo").value;
+    const moedaEntrada = document.getElementById("selectMoedaEntrada").selectedOptions[0].value;
+    const moedaSaida = document.getElementById("selectMoedaSaida").selectedOptions[0].value;
+    
+    
+    const token = valorCalculo * moedas[moedaEntrada];
+    const result = token / moedas[moedaSaida];
+    
+    
+    document.getElementById("moedaResultado").innerHTML="<span style='color:#FF9C5A'>" + result + "</span>";
+    
+}

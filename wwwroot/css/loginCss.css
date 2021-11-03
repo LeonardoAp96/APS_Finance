@@ -1,0 +1,81 @@
+body {
+    padding: 0;
+    margin: 0;
+  }
+
+  #login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+  }
+
+  .card {
+    background-color: rgba(255, 102, 0, 0.8);
+    padding: 40px;
+    border-radius: 2px;
+    width: 280px;
+  }
+
+  .card-header {
+    /* padding-bottom: 50px; */
+    color: #fff;
+  }
+
+  .card-header::after {
+
+    width: 70px;
+    height: 1px;
+    background-color: #fff;
+    display: block;
+    margin-top: -17px;
+    margin-left: -5px;
+  }
+
+  .card-content label {
+    color: #fff;
+    font-size: 12px;
+  }
+
+  .card-content-area {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .card-content-area input {
+    margin-top: 10px;
+    padding: 0 5px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e1e1e1;
+    color: #fff;
+  }
+
+  .card-footer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-footer .submit {
+    width: 100%;
+    height: 40px;
+    background-color: #FF6600;
+    border: none;
+    color: #e1e1e1;
+    margin: 10px 0;
+  }
+
+  .card-footer a {
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.8;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .cadastro{
+    font-size: 18px;
+  }

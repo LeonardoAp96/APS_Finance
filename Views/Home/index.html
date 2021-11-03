@@ -3,16 +3,18 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../../wwwroot/css/homeCss.css">
+  <link rel="stylesheet" type="text/css" href="../../wwwroot/css/selectCss.css">
   <title> Managence Finance</title>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="../../wwwroot/js/serviceAPI.js"></script>
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-dark navbar-expand-md fixed-top">
+  <nav class="navbar navbar-dark navbar-expand-md">
     <div class="container slideMenuTop">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
         <span class="navbar-toggler-icon"></span>
@@ -63,7 +65,7 @@
     <div class="bemVindo " style="width: 80%;margin:0 auto;">
 
       <div class="row">
-        <div class="col-4 blockMenu">
+        <div class="col-4 blockMenu ">
           <p><a data-toggle="tab" href="#cartoes">Cartões</a></p>
         </div>
 
@@ -73,25 +75,51 @@
 
         <div class="col-4 blockMenu">
           <p><a data-toggle="tab" href="#simulacoes">Simulações</a></p>
-        </div>  
+        </div>
 
       </div>
 
       <div class="row" style="background-color:rgba(0,0,0,0.2);">
 
         <div class="tabInformacao tab-content">
+
           <div id="cartoes" class=" tab-pane">
             <h3>Cartões</h3>
-            <p><a href="">Acesse a sua conta</a></p>
+            <p><a class="aCadastro" href="../Login/login.html">Acesse a sua conta</a></p>
           </div>
-          <div id="cambio" class="tab-pane in active">
+
+          <div id="cambio" class="tab-pane in active" style="margin: 0 auto;">
             <h3>Cambio</h3>
             <p>Veja a cotação da sua moeda aqui</p>
+
+            <label>Coloque uma quantia: </label>
+            <input id="valorCalculo" class="faleconosco" type="number" placeholder="Ex.: 54">
+            <br><br>
+
+            <label for="MoedaEntrada">Moeda de Entrada:</label>
+            <select id="selectMoedaEntrada" class="custom-select" style="width: auto;">
+              <option value="BRL">Real</option>
+              <option value="USD">Dólar</option>
+              <option value="EUR">Euro</option>
+            </select>
+
+            <span> X </span>
+
+            <label for="MoedaSaida">Moeda Saida:</label>
+            <select id="selectMoedaSaida" class="custom-select" style="width: auto;">
+              <option value="BRL">Real</option>
+              <option value="USD">Dólar</option>
+              <option value="EUR">Euro</option>
+            </select>
+
+            <span class="aCalcular" onclick="CalcularMoeda()">Calcular</a></span>
+            <div id="moedaResultado"></div>
           </div>
+
           <div id="simulacoes" class="tab-pane">
             <h3>Simulações</h3>
             <p>Veja as suas projeções aqui</p>
-            
+
             <canvas width="200" height="100" class="myChart">
             </canvas>
 
@@ -102,44 +130,7 @@
     </div>
   </nav>
 
-<!-- 
-  <nav id="informacoes" class="jumbotron">
-    <div class="slide container">
 
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100"
-              src="https://www.remessaonline.com.br/blog/wp-content/uploads/2020/09/plano-de-negocios.jpeg.optimal.jpeg"
-              alt="Primeiro Slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100"
-              src="https://content.portaldofranchising.com.br/wp-content/uploads/2021/02/12192352/negocios-promissores.jpg"
-              alt="Segundo Slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100"
-              src="https://rockcontent.com/br/wp-content/uploads/sites/2/2020/03/modelo-de-plano-de-neg%C3%B3cios-para-internet-e1472584954951-1024x585.jpg"
-              alt="Terceiro Slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Próximo</span>
-        </a>
-      </div>
-    </div>
-  </nav> -->
 
   <nav id="divSobre" class="jumbotron ">
     <div class="container" id="sobre">
@@ -197,14 +188,22 @@
           <h1>Fale Conosco</h1>
           <p class="col-4 col-md-6">
             <fieldset>
+
               <label for="email">Nome: </label>
-              <input class="faleConosco" type="email" id="email" name="nome"><br><br>
+              <input class="faleConosco" type="text" id="nome" name="contatoNome" placeholder="Ex.: Norberto">
+              <br><br>
+
               <label for="email">Email: </label>
-              <input class="faleConosco" type="email" id="email" name="email"><br><br>
+              <input class="faleConosco" onblur="validacaoEmail()" type="email" id="contatoEmail" name="email"
+                placeholder="Ex.: Norberto@email.com">
+              <div id="msgemail"></div>
+              <br><br>
+
               <label for="info">
                 <h3>Comentários</h3>
               </label>
-              <textarea class="comentario" name="info" id="info" rows="10" cols="80">
+              <textarea class="comentario" name="info" id="info" rows="2" cols="80"
+                placeholder="Ex.: Norberto@email.com">
                             </textarea>
             </fieldset>
           </p>
@@ -213,7 +212,8 @@
     </div>
   </nav>
 
-  <footer class="navbar navbar-dark navbar-expand-md" style="background-color: #FF6600; color:lavender">
+  <footer class="navbar navbar-dark navbar-expand-md"
+    style="background-color:rgb(255, 102, 0);color:white;width: 100%; height: 10%;position: relative;">
     <p style="float: left;">Managence Finance </p>
     <p> - Lista de links</p>
   </footer>
@@ -231,26 +231,49 @@
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-  <script>
-    $('.carousel').carousel();
-
-
-    function IrBaixo(dado) {
-      var elmnt = document.getElementById(dado);
-      elmnt.scrollIntoView(false);
-      console.log(dado);
-    }
-
-    var ctx = document.getElementsByClassName("myChart");
-
-    var chatgraph = new Chart(ctx, {
-      type: 'line',
-      options: {
-        responsive: true,
-      }
-    });
-  </script>
+  <script src="../../wwwroot/js/inicio.js"> </script>
 
 </body>
 
 </html>
+
+
+
+<!-- 
+  <nav id="informacoes" class="jumbotron">
+    <div class="slide container">
+
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100"
+              src="https://www.remessaonline.com.br/blog/wp-content/uploads/2020/09/plano-de-negocios.jpeg.optimal.jpeg"
+              alt="Primeiro Slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100"
+              src="https://content.portaldofranchising.com.br/wp-content/uploads/2021/02/12192352/negocios-promissores.jpg"
+              alt="Segundo Slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100"
+              src="https://rockcontent.com/br/wp-content/uploads/sites/2/2020/03/modelo-de-plano-de-neg%C3%B3cios-para-internet-e1472584954951-1024x585.jpg"
+              alt="Terceiro Slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Próximo</span>
+        </a>
+      </div>
+    </div>
+  </nav> -->
