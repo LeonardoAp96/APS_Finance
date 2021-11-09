@@ -1,5 +1,6 @@
     $('.carousel').carousel();
-
+    cotacaoHoje();
+    
     function IrBaixo(dado) {
       var elmnt = document.getElementById(dado);
       elmnt.scrollIntoView(false);
