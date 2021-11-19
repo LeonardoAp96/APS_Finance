@@ -8,9 +8,19 @@
     }
 
     var ctx = document.getElementsByClassName("myChart");
-
+    var cotacaoPeriodo = cotacaoPorPeriodo(5)
     var chatgraph = new Chart(ctx, {
       type: 'line',
+      data:{
+        labels:cotacaoPeriodo[1],
+        datasets:[{
+            data: cotacaoPeriodo[0],
+            label: 'My First Dataset',
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }],
+      },
       options: {
         responsive: true,
       }
