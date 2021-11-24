@@ -1,4 +1,5 @@
-<html>
+<!doctype html>
+<html lang="pt-br">
 
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -25,11 +26,13 @@
           <li class="nav-item "><a id="slideMenuTopLink" class="nav-link" href="#divInformacoes"> Informações</a></li>
           <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divSobre"> Sobre</a></li>
           <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divContato"> Contato</a></li>
-          <li class="nav-item" style="padding-left: 5%;"><a id="slideMenuTopLink" class="nav-link" href="../Login/login.html"> Entrar</a></li>
+          <li class="nav-item" style="padding-left: 5%;"><a id="slideMenuTopLink" class="nav-link" href="../Login/login.php"> Entrar</a></li>
         </ul>
       </div>
     </div>
   </nav>
+
+
 
   <header id="topo" class="jumbotron jumbotronHeader">
     <div id="carouselExampleIndicators" class="carousel slide divCarrousel" data-ride="carousel">
@@ -62,6 +65,14 @@
     </div>
   </header>
 
+  <?php 
+  session_start();
+          echo "<h2>Olá, seja bem-vindo(a) " . $_SESSION["user"] . "</h2>"; 
+          
+          echo '<script>console.log("'. $_SESSION["user"] . '")</script>';
+      ?>
+      
+
   <nav id="divInformacoes" class="jumbotron jumbotronBemVindo">
     <div class="bemVindo " style="width: 80%;margin:0 auto;">
 
@@ -86,7 +97,7 @@
 
           <div id="cartoes" class=" tab-pane">
             <h3>Cartões</h3>
-            <p><a class="aCadastro" href="../Login/login.html">Acesse a sua conta</a></p>
+            <p><a class="aCadastro" href="../Login/login.php">Acesse a sua conta</a></p>
           </div>
 
           <div id="cambio" class="tab-pane in active" style="margin: 0 auto;">
