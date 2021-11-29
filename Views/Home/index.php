@@ -13,8 +13,28 @@
 
 </head>
 
-<body>
 
+<?php 
+  session_start();
+  
+
+  $login = "";
+  $displayCartao = "";
+  $displayCartao1 = "hidden";
+  
+  
+  if(isset($_SESSION["user"])){
+    $login = $_SESSION["user"];
+    $displayCartao = "hidden";
+    $displayCartao1 = "";
+  }
+
+
+  
+?>
+
+<body>
+  
   <nav class="navbar navbar-dark navbar-expand-md">
     <div class="container slideMenuTop">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
@@ -63,15 +83,7 @@
         <span class="sr-only">Próximo</span>
       </a>
     </div>
-  </header>
-
-  <?php 
-  session_start();
-          echo "<h2>Olá, seja bem-vindo(a) " . $_SESSION["user"] . "</h2>"; 
-          
-          echo '<script>console.log("'. $_SESSION["user"] . '")</script>';
-      ?>
-      
+  </header>    
 
   <nav id="divInformacoes" class="jumbotron jumbotronBemVindo">
     <div class="bemVindo " style="width: 80%;margin:0 auto;">
@@ -96,8 +108,94 @@
         <div class="tabInformacao tab-content">
 
           <div id="cartoes" class=" tab-pane">
-            <h3>Cartões</h3>
-            <p><a class="aCadastro" href="../Login/login.php">Acesse a sua conta</a></p>
+            
+            <div <?php echo $displayCartao ?>>
+              <h3>Cartões</h3>
+              <p>
+                <a class="aCadastro" href="../Login/login.php">Acesse a sua conta</a>
+              </p>
+            </div>
+
+            <div <?php echo $displayCartao1 ?> > 
+              Meus Cartões
+
+              <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" href="#inserir">+ Adcionar Cartões</a>
+                    </h4>
+                  </div>
+                  <div id="inserir" class="panel-collapse collapse">
+
+                    <form method="post" action="../../Controllers/controle_cartao.php" style="display:inline-flex;">
+
+                      <div class="form-group col-4">
+                        <label for="nome">Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome">
+                      </div>
+                      <div class="form-group col-4">
+                        <label for="tipo">Tipo:</label>
+                        <input type="text" class="form-control" id="tipo" name="tipo">
+                      </div> 
+                      <div class="form-group col-4">
+                        <label for="saldo">Saldo:</label>
+                        <input type="number" step=".01" class="form-control" id="tipo" name="saldo">
+                      </div> 
+
+                      <input type="submit" name="salvar" value="Salvar" class="submit">  
+                    </form>
+
+                  </div>
+                </div>
+              </div> 
+
+              <div>
+                <h2>Lista de cartoes</h2>           
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>N*</th>
+                      <th>Nome</th>
+                      <th>Tipo</th>
+                      <th>Saldo</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <?php
+                  include_once("../../Models/conexao.php");
+                  $conexao=new Conexao(); 
+                  $conn=$conexao->conectar();
+                  
+                  $consulta = $conn->query("SELECT * FROM cartao");
+                  $registros=$consulta->rowCount();
+                  $count = 1;
+                  if($registros){
+                    while ($cartao = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                      echo "
+                        <tr>
+                          <td>".$count++."</td>
+                          <td>".$cartao['nome']."</td>
+                          <td>".$cartao['tipo']."</td>
+                          <td>".$cartao['saldo']."</td>
+                          <td> <form method='post' action='../../Controllers/controle_cartao.php'>
+                          <input class='btn btn-outline-primary mr-3' type='submit' name='botao_editar' value='Editar'>
+                          <input class='btn btn-outline-danger' type='submit' name='botao_excluir' value='Excluir'>
+                          <input type='hidden' name='id_excluir' value = '" . $cartao['id_cartao'] . "'/></form> </td>
+                        </tr>
+                      ";
+                    }
+                  } else{
+                    echo "Não há";
+                  }
+                ?> 
+                  </tbody>
+                </table>
+              </div>
+
+
+            </div>
           </div>
 
           <div id="cambio" class="tab-pane in active" style="margin: 0 auto;">

@@ -1,5 +1,4 @@
 <?php
-
 class Cartao
 {
     private $id;
