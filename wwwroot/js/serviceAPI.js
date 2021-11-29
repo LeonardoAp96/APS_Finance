@@ -15,19 +15,20 @@ function cotacaoHoje(){
 function cotacaoPorPeriodo(periodo){
     
     let datePeriod = new Date();
-    let dateMonth = datePeriod.getMonth();
+    let dateDate = datePeriod.getDate();
     
-
+    
     let values = [];
     let monthValues = [];
     for(var count=0; count<periodo;count++){
 
         let dates= formatDateParaBusca(datePeriod, 3);
-        datePeriod.setMonth(dateMonth-count);
+        dateDate = datePeriod.getDate();
+        datePeriod.setDate(dateDate-8);
         
-
-        values.push(buscaCotacao(dates.begin,dates.end)[0]);
-        monthValues.push(parseNumberToMonth(buscaCotacao(dates.begin,dates.end)[1]));
+        valoresCotacao = buscaCotacao(dates.begin,dates.end)
+        values.push(valoresCotacao[0]);
+        monthValues.push(parseNumberToMonth(valoresCotacao[1]));
     }
 
     console.log(values);
@@ -66,7 +67,7 @@ function buscaCotacao(DateOne, DateTwo){
     
     let data = fazGetAPI(url);
     let cotacaoDia = JSON.parse(data);
-
+    debugger
     console.log(cotacaoDia.value[0].cotacaoVenda);
     
    return [cotacaoDia.value[0].cotacaoVenda, cotacaoDia.value[0].dataHoraCotacao];
@@ -93,9 +94,10 @@ function formatDayAndMonth(value){
 }
 
 function parseNumberToMonth(value){
-    debugger
     let month = value.split("-");
-    let Months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", 
-                            "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro","Sei la"];
-    return Months[parseInt(month[1])-1];
+    let day = month[2].split(" ");
+    let Months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", 
+                            "Ago", "Set", "Out", "Nov", "Dez","Sla"];
+    const data = day[0] + "/" + Months[parseInt(month[1])-1];
+    return data;
 }

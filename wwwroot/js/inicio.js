@@ -8,20 +8,41 @@
     }
 
     var ctx = document.getElementsByClassName("myChart");
-    var cotacaoPeriodo = cotacaoPorPeriodo(5)
+    var cotacaoPeriodo = cotacaoPorPeriodo(8);
     var chatgraph = new Chart(ctx, {
       type: 'line',
       data:{
         labels:cotacaoPeriodo[1],
+        color:"black",
         datasets:[{
             data: cotacaoPeriodo[0],
-            label: 'My First Dataset',
+            label: 'Dolar',
             fill: false,
-            borderColor: 'rgb(75, 192, 192)',
+            borderColor: '#FF6600',
             tension: 0.1
           }],
       },
       options: {
+        legend: {
+          labels: {
+              fontColor: "black",
+              fontSize: 18
+          }
+        },
+        scales: {
+          xAxes: [{
+            ticks: {
+              fontColor: "black",
+              fontSize: 18
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              fontColor: "black",
+              fontSize: 14
+            }
+          }],
+        },
         responsive: true,
       }
     });
