@@ -47,6 +47,15 @@
           <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divSobre"> Sobre</a></li>
           <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divContato"> Contato</a></li>
           <li class="nav-item" style="padding-left: 5%;"><a id="slideMenuTopLink" class="nav-link" href="../Login/login.php"> Entrar</a></li>
+          <li class="nav-item" style="padding-left: 5%;">
+            <form method="post" class="card" action="../../Controllers/login.php">
+              <input type="submit" name="sair" value="Sair" class="    
+    background-color: #FF6600;
+    border: none;
+    color: #e1e1e1;
+    margin: 10px 0;">
+            </form>
+          </li>
         </ul>
       </div>
     </div>
@@ -83,8 +92,8 @@
         <span class="sr-only">Próximo</span>
       </a>
     </div>
-  </header>    
-
+  </header>   
+  
   <nav id="divInformacoes" class="jumbotron jumbotronBemVindo">
     <div class="bemVindo " style="width: 80%;margin:0 auto;">
 
@@ -174,15 +183,15 @@
                   if($registros){
                     while ($cartao = $consulta->fetch(PDO::FETCH_ASSOC)) {
                       echo "
-                        <tr>
-                          <td>".$count++."</td>
-                          <td>".$cartao['nome']."</td>
-                          <td>".$cartao['tipo']."</td>
-                          <td>".$cartao['saldo']."</td>
-                          <td> <form method='post' action='../../Controllers/controle_cartao.php'>
+                        <tr><form method='post' action='../../Controllers/controle_cartao.php'>
+                          <td >". $count++ . "</td>
+                          <td><input type='text' name='nome' value='". $cartao['nome'] ."' readonly/></td>
+                          <td><input type='text' name='tipo' value='". $cartao['tipo'] ."' readonly/></td>
+                          <td><input type='number' step='.01' name='saldo' value='". $cartao['saldo'] ."'/></td>
+                          <td> 
                           <input class='btn btn-outline-primary mr-3' type='submit' name='botao_editar' value='Editar'>
                           <input class='btn btn-outline-danger' type='submit' name='botao_excluir' value='Excluir'>
-                          <input type='hidden' name='id_excluir' value = '" . $cartao['id_cartao'] . "'/></form> </td>
+                          <input type='hidden' name='id_cartao' value = '" . $cartao['id_cartao'] . "'/> </td></form>
                         </tr>
                       ";
                     }

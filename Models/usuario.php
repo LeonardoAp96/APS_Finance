@@ -21,24 +21,27 @@ class Usuario{
     }
 
     public function Entrar($user, $senha){
-          $usuario_ = "Linux";
-          $senha_ = "123";
-          echo '<script>alert("Deu cErto")</script>';
-          session_start();
-  
-          $_SESSION["user"] = $user;
-          $_SESSION["senha"] = $senha;
+        $usuario_ = "Linux";
+        $senha_ = "123";
+        //echo '<script>alert("Deu cErto")</script>';
+        session_start();
+        
+        if($user != $usuario_ || $senha!=$senha_){
+            exit("Usuário e/ou senha incorretos");
+        }
+        
+        $_SESSION["user"] = $user;
+        $_SESSION["senha"] = $senha;
 
-          echo '<script>console.log'. $user . '</script>';
-      
-              // Verifica se a sessão do usuário está vazia
-              if (empty($_SESSION["user"]) && empty($_SESSION["senha"])) {
-                  exit("Usuário e/ou senha vazios");
-              } elseif (($_SESSION["user"] != $usuario_) || ($_SESSION["senha"] != $senha_)) {
-                  exit("Usuário ou senha não encontrado.");
-              } else {
-                  header("location:../Views/Home/index.php");
-              }        
+    
+            // Verifica se a sessão do usuário está vazia
+            if (empty($_SESSION["user"]) && empty($_SESSION["senha"])) {
+                exit("Usuário e/ou senha vazios");
+            } elseif (($_SESSION["user"] != $usuario_) || ($_SESSION["senha"] != $senha_)) {
+                exit("Usuário ou senha não encontrado.");
+            } else {
+                header("location:../Views/Home/index.php");
+            }        
 
     }
 

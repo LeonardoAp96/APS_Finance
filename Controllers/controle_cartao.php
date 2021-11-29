@@ -17,7 +17,11 @@ if (isset($_POST["bt_listar"])) {
 }
 
 if (isset($_POST["botao_excluir"])) {
-    $cartaoDAO->excluir($_POST["id_excluir"],$conn);
+    $cartaoDAO->excluir($_POST["id_cartao"],$conn);
 }
+
+if (isset($_POST["botao_editar"])) {
+    $cartaoDAO->editar($_POST["id_cartao"],$_POST["nome"],$_POST["tipo"], $_POST["saldo"],$conn);
+  }
 
 ?>
