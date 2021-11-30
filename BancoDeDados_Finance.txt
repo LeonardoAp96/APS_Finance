@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Nov-2021 às 15:26
+-- Tempo de geração: 30-Nov-2021 às 14:05
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -33,7 +33,7 @@ CREATE TABLE `cartao` (
   `id_cartao` int(11) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `tipo` varchar(10) NOT NULL,
-  `saldo` decimal(10,2) DEFAULT NOT NULL
+  `saldo` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -48,6 +48,28 @@ INSERT INTO `cartao` (`id_cartao`, `nome`, `tipo`, `saldo`) VALUES
 (10, 'dsfsdf', 'Crédito', '540.00'),
 (11, 'Nubank', 'Outros', '199.77'),
 (13, 'CrediCard', 'Outros', '90.55');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `formulario`
+--
+
+CREATE TABLE `formulario` (
+  `id_formulario` int(11) NOT NULL,
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `contatoMsg` varchar(300) NOT NULL,
+  `data_envio` varchar(12) NOT NULL,
+  `hora_envio` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `formulario`
+--
+
+INSERT INTO `formulario` (`id_formulario`, `nome`, `email`, `contatoMsg`, `data_envio`, `hora_envio`) VALUES
+(1, 'Linux', 'terry@hotmail.com', '                            asdasdasd  ', '30/11/2021', '13:56:05');
 
 -- --------------------------------------------------------
 
@@ -72,6 +94,12 @@ ALTER TABLE `cartao`
   ADD PRIMARY KEY (`id_cartao`);
 
 --
+-- Índices para tabela `formulario`
+--
+ALTER TABLE `formulario`
+  ADD PRIMARY KEY (`id_formulario`);
+
+--
 -- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
@@ -86,6 +114,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `cartao`
   MODIFY `id_cartao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de tabela `formulario`
+--
+ALTER TABLE `formulario`
+  MODIFY `id_formulario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
