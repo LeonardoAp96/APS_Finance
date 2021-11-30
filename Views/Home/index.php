@@ -148,7 +148,7 @@
                         <input type="number" step=".01" class="form-control" id="tipo" name="saldo" value="0,00" min='0'>
                       </div> 
 
-                      <input type="submit" name="salvar" value="Salvar" class="submit">  
+                      <input class="aVoltar" type="submit" name="salvar" value="Salvar" class="submit">  
                     </form>
 
                   </div>
@@ -156,7 +156,9 @@
               </div> 
 
               <div>
-                <h2>Lista de cartoes</h2>           
+                <br>
+                <h2 style="margin:0 auto; width:600px;text-align:center;">Lista dos Cartões de <?php echo $login ?></h2>     
+                <br>      
                 <table class="table">
                   <thead>
                     <tr>
@@ -169,36 +171,36 @@
                   </thead>
                   <tbody>
                   <?php
-                  include_once("../../Models/conexao.php");
-                  $conexao=new Conexao(); 
-                  $conn=$conexao->conectar();
-                  
-                  $consulta = $conn->query("SELECT * FROM cartao");
-                  $registros=$consulta->rowCount();
-                  $count = 1;
-                  if($registros){
-                    while ($cartao = $consulta->fetch(PDO::FETCH_ASSOC)) {
-                      echo "
-                        <tr><form method='post' action='../../Controllers/controle_cartao.php'>
-                          <td >". $count++ . "</td>
-                          <td>". $cartao['nome'] ."
-                          <input type='hidden' name='nome' value='". $cartao['nome'] ."'/></td>
-                          
-                          <td>". $cartao['tipo'] ."
-                          <input type='hidden' name='tipo' value='". $cartao['tipo'] ."'/></td>
-                          
-                          <td><input type='number' step='.01' name='saldo' value='". $cartao['saldo'] ."' min='0'/></td>
-                          <td> 
-                          <input class='btn btn-outline-primary mr-3' type='submit' name='botao_editar' value='Editar'>
-                          <input class='btn btn-outline-danger' type='submit' name='botao_excluir' value='Excluir'>
-                          <input type='hidden' name='id_cartao' value = '" . $cartao['id_cartao'] . "'/> </td></form>
-                        </tr>
-                      ";
+                    include_once("../../Models/conexao.php");
+                    $conexao=new Conexao(); 
+                    $conn=$conexao->conectar();
+                    
+                    $consulta = $conn->query("SELECT * FROM cartao");
+                    $registros=$consulta->rowCount();
+                    $count = 1;
+                    if($registros){
+                      while ($cartao = $consulta->fetch(PDO::FETCH_ASSOC)) {
+                        echo "
+                          <tr><form method='post' action='../../Controllers/controle_cartao.php'>
+                            <td >". $count++ . "</td>
+                            <td>". $cartao['nome'] ."
+                            <input type='hidden' name='nome' value='". $cartao['nome'] ."'/></td>
+                            
+                            <td>". $cartao['tipo'] ."
+                            <input type='hidden' name='tipo' value='". $cartao['tipo'] ."'/></td>
+                            
+                            <td><input type='number' step='.01' name='saldo' value='". $cartao['saldo'] ."' min='0'/></td>
+                            <td> 
+                            <input class='btn btn-outline-primary mr-3' type='submit' name='botao_editar' value='Editar'>
+                            <input class='btn btn-outline-danger' type='submit' name='botao_excluir' value='Excluir'>
+                            <input type='hidden' name='id_cartao' value = '" . $cartao['id_cartao'] . "'/> </td></form>
+                          </tr>
+                        ";
+                      }
+                    } else{
+                      echo "Não há";
                     }
-                  } else{
-                    echo "Não há";
-                  }
-                ?> 
+                  ?> 
                   </tbody>
                 </table>
               </div>
