@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30-Nov-2021 às 14:05
+-- Tempo de geração: 01-Dez-2021 às 05:04
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -41,11 +41,6 @@ CREATE TABLE `cartao` (
 --
 
 INSERT INTO `cartao` (`id_cartao`, `nome`, `tipo`, `saldo`) VALUES
-(5, 'rtetret', 'retreter', '800.80'),
-(6, 'ghhgj', 'hgjg', '436.00'),
-(7, 'sdfsdf', 'dsfsdf', '346.00'),
-(9, 'asdasdsad', 'asdasdasd', '435.97'),
-(10, 'dsfsdf', 'Crédito', '540.00'),
 (11, 'Nubank', 'Outros', '199.77'),
 (13, 'CrediCard', 'Outros', '90.55');
 
