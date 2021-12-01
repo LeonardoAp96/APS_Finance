@@ -27,7 +27,9 @@ class Usuario{
         session_start();
         
         if($user != $usuario_ || $senha!=$senha_){
-            exit("Usuário e/ou senha incorretos");
+            echo "<script>alert('Usuário ou senha não encontrado.');
+                window.location = '../Views/Login/login.php';
+                </script>";
         }
         
         $_SESSION["user"] = $user;
@@ -36,13 +38,16 @@ class Usuario{
     
             // Verifica se a sessão do usuário está vazia
             if (empty($_SESSION["user"]) && empty($_SESSION["senha"])) {
-                exit("Usuário e/ou senha vazios");
+                echo "<script>alert('Usuário e/ou senha vazios');
+                window.location = '../Views/Login/login.php';
+                </script>";
             } elseif (($_SESSION["user"] != $usuario_) || ($_SESSION["senha"] != $senha_)) {
-                exit("Usuário ou senha não encontrado.");
+                echo "<script>alert('Usuário ou senha não encontrado.');
+                window.location = '../Views/Login/login.php';
+                </script>";
             } else {
                 header("location:../Views/Home/index.php");
             }        
-
     }
 
     function Sair()
