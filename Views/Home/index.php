@@ -13,7 +13,6 @@
 
 </head>
 
-
 <?php 
   session_start();
 
@@ -30,7 +29,7 @@
 
 <body>
   
-  <nav class="navbar navbar-dark navbar-expand-md">
+  <nav class="navbar navbar-dark navbar-expand-md fixed-top">
     <div class="container slideMenuTop">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
         <span class="navbar-toggler-icon"></span>
@@ -38,7 +37,7 @@
       <a class="navbar-brand" href="#">Managence Finance</a>
       <div class="collapse navbar-collapse" id="Navbar">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item "><a id="slideMenuTopLink" class="nav-link" href="#divInformacoes"> Informações</a></li>
+          <li class="nav-item active"><a id="slideMenuTopLink" class="nav-link" href="#divInformacoes"> Informações</a></li>
           <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divSobre"> Sobre</a></li>
           <li class="nav-item"><a id="slideMenuTopLink" class="nav-link" href="#divContato"> Contato</a></li>
           <li class="nav-item" style="padding-left: 5%;" <?php echo $displayCartao ?>><a id="slideMenuTopLink" class="nav-link" href="../Login/login.php"> Entrar</a></li>

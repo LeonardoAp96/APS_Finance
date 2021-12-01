@@ -40,8 +40,8 @@
 
       <div class="card-footer">
         <input type="submit" name="entrar" value="Entrar" class="submit">
-        <a href="#" style="font-size: 18px;"> Faça o cadastro</a>
-        <a href="#" class="recuperar_senha"> Esqueceu a senha?</a>
+        <!-- <a href="#" style="font-size: 18px;"> Faça o cadastro</a>
+        <a href="#" class="recuperar_senha"> Esqueceu a senha?</a> -->
       </div>
 
     </form>

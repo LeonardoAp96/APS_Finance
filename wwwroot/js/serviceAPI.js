@@ -67,7 +67,7 @@ function buscaCotacao(DateOne, DateTwo){
     
     let data = fazGetAPI(url);
     let cotacaoDia = JSON.parse(data);
-    debugger
+
     console.log(cotacaoDia.value[0].cotacaoVenda);
     
    return [cotacaoDia.value[0].cotacaoVenda, cotacaoDia.value[0].dataHoraCotacao];
@@ -77,13 +77,15 @@ function buscaCotacao(DateOne, DateTwo){
 
 function formatDateParaBusca(date, interval){
     
+    debugger
     var data = date;
     var dataMonth = data.getMonth()+1;
 
     const dataOne = formatDayAndMonth(dataMonth) + "-" + formatDayAndMonth(data.getDate()) + "-" + data.getFullYear();
     
     data.setDate(date.getDate() - interval);
- 
+    dataMonth = data.getMonth()+1;
+
     const dataTwo = formatDayAndMonth(dataMonth) + "-" + formatDayAndMonth(data.getDate()) + "-" + data.getFullYear();
 
     return {begin:dataTwo, end:dataOne};
